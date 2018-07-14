@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Titles extends Component {
+class Header extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class Titles extends Component {
   }
 }
 
-export default Titles;
+export default Header;
