@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Titles from './components/Titles';
+import Header from './components/Header';
 import Form from './components/Form';
 import Weather from './components/Weather';
 
@@ -23,7 +23,7 @@ class App extends Component {
     const country = e.target.elements.country.value;
 
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&mode=json&appid=${API_KEY}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&mode=json&appid=${API_KEY}&units=imperial`
     );
     const data = await api_call.json();
 
@@ -36,13 +36,22 @@ class App extends Component {
         description: data.weather[0].description,
         error: ''
       });
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: 'Please enter city and country'
+      });
     }
   };
 
   render() {
     return (
       <div className="App">
-        <Titles />
+        <Header />
         <Form getWeather={this.getWeather} />
         <Weather
           temperature={this.state.temperature}
