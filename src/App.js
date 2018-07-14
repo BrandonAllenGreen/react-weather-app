@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Form from './components/Form';
 import Weather from './components/Weather';
 
-const API_KEY = '4586fec77ff3fa7369490982f5985346';
+const API_KEY = '';
 
 // import './App.css';
 
